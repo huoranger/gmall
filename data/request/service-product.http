@@ -1,0 +1,53 @@
+### 获取一级分类
+GET {{host}}/admin/product/get-category1
+
+### 获取二级分类
+GET {{host}}/admin/product/get-category2/2
+
+### 获取三级分类
+GET {{host}}/admin/product/get-category3/13
+
+### 获取分类属性列表
+GET {{host}}/admin/product/attr-info-list/0/0/61
+
+### 查询属性值列表
+GET {{host}}/admin/product/get-attr-value-list/21
+
+### 添加平台属性
+POST {{host}}/admin/product/save-attr-info
+Content-Type: application/json
+
+{
+  "attrName": "test",
+  "attrValueList": [
+    {
+      "valueName": "tt1"
+    },
+    {
+      "valueName": "tt2"
+    }
+  ],
+  "categoryId": 61,
+  "categoryLevel": 3,
+}
+### 修改平台属性
+POST {{host}}/admin/product/save-attr-info
+Content-Type: application/json
+
+{
+  "attrName": "test1",
+  "attrValueList": [
+    {
+      "valueName": "tt1"
+    },
+    {
+      "valueName": "tt2"
+    },
+    {
+      "valueName": "tt2"
+    }
+  ],
+  "categoryId": 61,
+  "categoryLevel": 3,
+  "id": 20
+}
