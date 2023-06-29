@@ -1,7 +1,6 @@
 server:
   port: 8001
 
-base-url: http://127.0.0.1
 
 mybatis-plus:
   configuration:
@@ -20,7 +19,7 @@ spring:
   cloud:
     sentinel:
       transport:
-        dashboard: ${base-url}:8858
+        dashboard: 127.0.0.1:8858
   rabbitmq:
     host: 127.0.0.1
     port: 5672
@@ -55,4 +54,4 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
 fileServer:
-  url: http://127.0.0.1:8080/ # fastDFS 分布式文件系统的 ip:port
+  url: http://127.0.0.1:23000/ # fastDFS 分布式文件系统的 ip:port

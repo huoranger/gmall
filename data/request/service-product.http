@@ -28,8 +28,9 @@ Content-Type: application/json
     }
   ],
   "categoryId": 61,
-  "categoryLevel": 3,
+  "categoryLevel": 3
 }
+
 ### 修改平台属性
 POST {{host}}/admin/product/save-attr-info
 Content-Type: application/json
@@ -51,3 +52,22 @@ Content-Type: application/json
   "categoryLevel": 3,
   "id": 20
 }
+
+### 查询三级分类下的所有spu
+GET {{host}}/admin/product/1/10?category3-id=61
+
+### 分页获取品牌列表
+GET {{host}}/admin/product/base_trademark/1/10
+
+### 上传文件
+POST {{host}}/admin/product/file_upload
+Cache-Control: no-cache
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="avatar.jpeg"
+Content-Type: multipart/form-data
+
+< /Users/huoranger/Pictures/avatar.jpeg
+--WebAppBoundary--
+

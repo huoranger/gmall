@@ -1,6 +1,8 @@
 package com.huoranger.gmall.product.service;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.huoranger.gmall.model.product.*;
 import com.huoranger.gmall.product.mapper.BaseCategory3Mapper;
 
@@ -38,14 +40,22 @@ public interface ManageService {
 
     /**
      * 修改/保存平台属性数据
-     * @param baseAttrInfo
+     * @param baseAttrInfo 属性数据
      */
     void saveAttrInfo(BaseAttrInfo baseAttrInfo);
 
     /**
      * 根据属性id获取属性值数据
-     * @param attrId
-     * @return
+     * @param attrId 属性Id
+     * @return 属性值
      */
     List<BaseAttrValue> getBaseAttrValueList(Long attrId);
+
+    /**
+     * 根据三级分类id获取SpuInfo集合数据
+     * @param spuInfoPage 分页对西那个
+     * @param category3Id 三级分类ID
+     * @return spu分页数据
+     */
+    IPage<SpuInfo> getSpuInfoList(Page<SpuInfo> spuInfoPage, String category3Id);
 }

@@ -1,0 +1,7 @@
+###
+POST https://api-open-cater.meituan.com/wmoper/ng/comment/queryCommentList
+
+###
+POST https://api-open-cater.meituan.com/wmoper/ng/comment/addReply
+Content-Type: application/json
+

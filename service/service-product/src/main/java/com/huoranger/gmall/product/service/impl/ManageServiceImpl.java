@@ -1,6 +1,8 @@
 package com.huoranger.gmall.product.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.huoranger.gmall.model.product.*;
 import com.huoranger.gmall.product.mapper.*;
 import com.huoranger.gmall.product.service.ManageService;
@@ -28,6 +30,10 @@ public class ManageServiceImpl implements ManageService {
 
     @Resource
     private BaseAttrValueMapper baseAttrValueMapper;
+
+    @Resource
+    private SpuInfoMapper spuInfoMapper;
+
 
     @Override
     public List<BaseCategory1> getBaseCategory1() {
@@ -79,5 +85,13 @@ public class ManageServiceImpl implements ManageService {
     public List<BaseAttrValue> getBaseAttrValueList(Long attrId) {
         return baseAttrValueMapper.selectList(new LambdaQueryWrapper<BaseAttrValue>()
                 .eq(BaseAttrValue::getAttrId, attrId));
+    }
+
+    @Override
+    public IPage<SpuInfo> getSpuInfoList(Page<SpuInfo> spuInfoPage, String category3Id) {
+        Page<SpuInfo> selectedPage = spuInfoMapper.selectPage(spuInfoPage, new LambdaQueryWrapper<SpuInfo>()
+                .eq(SpuInfo::getCategory3Id, category3Id)
+                .orderByDesc(SpuInfo::getId));
+        return selectedPage;
     }
 }
